@@ -10,6 +10,10 @@ public class MainScene : MonoBehaviour
 {
     public List<Image> departments = new List<Image>();
 
+    public GameObject countryPrefabs;
+
+    public Canvas canvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +26,8 @@ public class MainScene : MonoBehaviour
 
             depart.gameObject.AddComponent<Button>().onClick.AddListener(() =>
             {
-                Debug.Log(Facade.runData.countyMgr.Single(x=>x.id == depart.name).name);
+                var gameObj = Instantiate(countryPrefabs, canvas.transform);
+                gameObj.GetComponentInChildren<CountryDetail>().gmData = Facade.runData.countyMgr.Single(x => x.id == depart.name);
             });
         }
     }

@@ -17,8 +17,9 @@ namespace Tais
 
         public IPopDef def { get; set; }
 
-        public PopHaoq(int num)
+        public PopHaoq(int num, IPopDef def)
         {
+            this.def = def;
             this.num = num;
         }
 

@@ -16,7 +16,7 @@ namespace Tais
         {
             all = new SourceCache<IPop, IPopDef>(x=>x.def);
 
-            all.AddOrUpdate(popDefs.Select(def => Activator.CreateInstance(GetPopType(def.type), pops[def.type]) as IPop));
+            all.AddOrUpdate(popDefs.Select(def => Activator.CreateInstance(GetPopType(def.type), pops[def.type], def) as IPop));
         }
 
         private Type GetPopType(string type)

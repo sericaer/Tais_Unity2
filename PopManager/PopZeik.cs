@@ -14,10 +14,10 @@ namespace Tais
 
         public IPopDef def { get; set; }
 
-        public PopZeik(int num)
+        public PopZeik(int num, IPopDef def)
         {
+            this.def = def;
             this.num = num;
         }
-
     }
 }

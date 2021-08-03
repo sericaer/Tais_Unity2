@@ -14,8 +14,9 @@ namespace Tais
 
         public IPopDef def { get; set; }
 
-        public PopYinh(int num)
+        public PopYinh(int num, IPopDef def)
         {
+            this.def = def;
             this.num = num;
         }
     }
