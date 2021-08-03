@@ -13,9 +13,10 @@ public class MainScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Facade.runData = new RunData();
+        Facade.LoadMods();
+        Facade.BuildRunData();
 
-        foreach(var depart in departments)
+        foreach (var depart in departments)
         {
             depart.alphaHitTestMinimumThreshold = 0.1f;
 
