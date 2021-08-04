@@ -8,11 +8,13 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>../TaisUnity/Assets/Cores</OutputPath>
+    <Optimize>false</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CountryManager\CountryManager.csproj" />
     <ProjectReference Include="..\Interface\Interface.csproj" />
+    <ProjectReference Include="..\Logger\Logger.csproj" />
     <ProjectReference Include="..\ModManager\ModManager.csproj" />
   </ItemGroup>
 

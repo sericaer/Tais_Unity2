@@ -17,7 +17,10 @@ public class MainScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Facade.LoadMods();
+        Facade.InitLog((x)=>Debug.Log(x));
+
+        Facade.LoadMods(Application.streamingAssetsPath + "/mods");
+
         Facade.BuildRunData();
 
         foreach (var depart in departments)

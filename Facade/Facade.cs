@@ -6,10 +6,15 @@ namespace Tais
     {
         public static RunData runData;
         public static ModManager modManager;
-
-        public static void LoadMods()
+        
+        public static void InitLog(Action<string> logAction)
         {
-            modManager = new ModManager();
+            Logger.Init(logAction);
+        }
+
+        public static void LoadMods(string path)
+        {
+            modManager = new ModManager(path);
         }
 
         public static void BuildRunData()

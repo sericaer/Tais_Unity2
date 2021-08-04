@@ -1,25 +1,29 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Tais
 {
     internal class CountryDef : ICountryDef
     {
+        public string path { get; set; }
         public string id { get; set; }
         public string name { get; set; }
 
         public IDictionary<string, int> pops { get; set; }
 
-        public CountryDef(string id, string name)
+        public static CountryDef Load(string path)
         {
-            this.id = id;
-            this.name = name;
-            this.pops = new Dictionary<string, int>()
-            {
-                { "haoqiang", 1000},
-                { "minhu", 50000},
-                { "yinhu", 20000},
-                { "zeikou", 1000}
-            };
+            Logger.INFO("analyze file: " + path);
+
+            var def = JsonConvert.DeserializeObject<CountryDef>(File.ReadAllText(path));
+
+            def.path = path;
+
+            return def;
+        }
+        public CountryDef()
+        {
         }
     }
 }

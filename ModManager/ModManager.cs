@@ -1,31 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Tais
 {
     public class ModManager
     {
-        public IEnumerable<IPopDef> popDefs;
-        public IEnumerable<ICountryDef> countryDefs;
+        public IEnumerable<IPopDef> popDefs => mods.SelectMany(x => x.popDefs);
+        public IEnumerable<ICountryDef> countryDefs => mods.SelectMany(x => x.countryDefs);
 
-        public ModManager()
+        private List<Mod> mods;
+
+        public ModManager(string path)
         {
-            countryDefs = new List<ICountryDef>()
-            {
-                new CountryDef("1", "jixian1"),
-                new CountryDef("2", "jixian2"),
-                new CountryDef("3", "jixian3"),
-                new CountryDef("4", "jixian4"),
-                new CountryDef("5", "jixian5"),
-            };
+            Logger.INFO("load mods start");
+            
+            mods = Directory.EnumerateDirectories(path).Select(x => new Mod(x)).ToList();
 
-            popDefs = new List<IPopDef>()
-            {
-                new PopDef(){ type = "haoqiang"},
-                new PopDef(){ type = "minhu"},
-                new PopDef(){ type = "yinhu"},
-                new PopDef(){ type = "zeikou" }
-            };
+            Logger.INFO("load mods finish");
         }
     }
 }

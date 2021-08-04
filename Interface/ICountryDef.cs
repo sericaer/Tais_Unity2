@@ -6,6 +6,7 @@ namespace Tais
 {
     public interface ICountryDef
     {
+        string path { get; }
         string id { get; }
         string name { get; }
 
