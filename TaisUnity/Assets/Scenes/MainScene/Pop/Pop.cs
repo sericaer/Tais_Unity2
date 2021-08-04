@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class Pop : MonoBehaviour
 {
-    public GameObject PopPrefabs;
+    public GameObject PopDetailPrefabs;
 
     public Text type;
     public Text name;
@@ -33,6 +33,12 @@ public class Pop : MonoBehaviour
 
     private IPop _gmData;
     
+    public void OnClick()
+    {
+        var gameObj = Instantiate(PopDetailPrefabs, transform.GetComponentInParent<Canvas>().transform);
+        gameObj.GetComponentInChildren<PopDetail>().gmData = gmData;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
