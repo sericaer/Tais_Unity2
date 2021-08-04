@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using ReactiveMarbles.PropertyChanged;
 using Tais;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +9,11 @@ using UnityEngine.UI;
 public class CountryDetail : MonoBehaviour
 {
     public Text label;
+    public Text popNum;
+    public Text farm;
+
+    public PopContainer popContainer;
+
     public ICountry gmData;
 
     public void Close()
@@ -18,6 +25,11 @@ public class CountryDetail : MonoBehaviour
     void Start()
     {
         label.text = gmData.name;
+
+        gmData.WhenPropertyValueChanges(x => x.popNum).Subscribe(x => popNum.text = x.ToString()).EndWith(this);
+        gmData.WhenPropertyValueChanges(x => x.farm).Subscribe(x => farm.text = x.ToString()).EndWith(this);
+
+        popContainer.gmData = gmData.popMgr;
     }
 
     // Update is called once per frame

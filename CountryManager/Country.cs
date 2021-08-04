@@ -2,12 +2,15 @@
 using DynamicData.Aggregation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Tais
 {
     internal class Country : ICountry
     {
-        public PopManager popMgr;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public IObservableCache<IPop, IPopDef> popMgr { get; set; }
 
         public string id => def.id;
 
