@@ -5,23 +5,10 @@ using System.Text;
 
 namespace Tais
 {
-    class PopHaoq : IPop
+    class PopHaoq : PopAbstract
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public double num { get; set; }
-
-        public double farm { get; set; }
-
-        public double consume { get; set; }
-
-        public IPopDef def { get; set; }
-
-        public PopHaoq(int num, IPopDef def)
+        public PopHaoq(IPopInit initData, IPopDef def) : base(initData, def)
         {
-            this.def = def;
-            this.num = num;
         }
-
     }
 }

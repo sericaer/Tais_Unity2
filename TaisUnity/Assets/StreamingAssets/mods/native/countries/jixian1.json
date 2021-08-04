@@ -2,9 +2,20 @@
     "id": 1,
 
     "pops": {
-        "haoqiang": 1000,
-        "minhu": 50000,
-        "yinhu": 10000,
-        "zeikou": 500
+        "haoqiang": {
+            "num": 1000,
+            "farm": 5000
+        },
+        "minhu": {
+            "num": 50000,
+            "farm": 50000
+        },
+        "yinhu": {
+            "num": 10000,
+            "farm": 10000
+        },
+        "zeikou": {
+            "num": 500
+        }
     }
 }

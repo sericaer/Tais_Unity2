@@ -12,7 +12,7 @@ namespace Tais
         private SourceCache<IPop, IPopDef> all;
 
 
-        public PopManager(IDictionary<string, int> pops, IEnumerable<IPopDef> popDefs)
+        public PopManager(IDictionary<string, IPopInit> pops, IEnumerable<IPopDef> popDefs)
         {
             all = new SourceCache<IPop, IPopDef>(x=>x.def);
 

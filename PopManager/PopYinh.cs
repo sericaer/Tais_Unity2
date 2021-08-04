@@ -2,22 +2,10 @@
 
 namespace Tais
 {
-    internal class PopYinh : IPop
+    internal class PopYinh : PopAbstract
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public double num { get; set; }
-
-        public double farm { get; set; }
-
-        public double consume { get; set; }
-
-        public IPopDef def { get; set; }
-
-        public PopYinh(int num, IPopDef def)
+        public PopYinh(IPopInit initData, IPopDef def) : base(initData, def)
         {
-            this.def = def;
-            this.num = num;
         }
     }
 }

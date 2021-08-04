@@ -10,6 +10,14 @@ namespace Tais
         string id { get; }
         string name { get; }
 
-        IDictionary<string, int> pops { get; }
+        IDictionary<string, IPopInit> pops { get; }
+    }
+
+
+    public interface IPopInit
+    {
+        int num { get;}
+
+        int farm { get;}
     }
 }
