@@ -38,6 +38,10 @@ namespace Tais
                 .Sum(x => (int)x.Value)
                 .Subscribe(x => farm = x);
         }
-        
+
+        public void DayInc((int y, int m, int d) date)
+        {
+            
+        }
     }
 }

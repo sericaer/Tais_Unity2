@@ -14,5 +14,7 @@ namespace Tais
         int farm { get; }
 
         IObservableCache<IPop, IPopDef> popMgr { get; }
+
+        void DayInc((int y, int m, int d) date);
     }
 }

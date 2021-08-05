@@ -28,6 +28,12 @@ namespace Tais
             }
         }
 
-
+        public void DayInc((int y, int m, int d) date)
+        {
+            foreach(var country in all)
+            {
+                country.DayInc(date);
+            }
+        }
     }
 }

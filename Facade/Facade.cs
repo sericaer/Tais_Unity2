@@ -6,7 +6,9 @@ namespace Tais
     {
         public static RunData runData;
         public static ModManager modManager;
-        
+
+        public static IDate date => runData.date;
+
         public static void InitLog(Action<string> logAction)
         {
             Logger.Init(logAction);

@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModManager", "ModManager\Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade", "Facade\Facade.csproj", "{A05DB21B-40F0-4F24-9E14-BA4BA869443F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{E231E64E-43C6-46D9-A64E-3D6A04076126}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{E231E64E-43C6-46D9-A64E-3D6A04076126}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Date", "Date\Date.csproj", "{914488EF-1906-43C1-BEDC-C68EA33D276E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{E231E64E-43C6-46D9-A64E-3D6A04076126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E231E64E-43C6-46D9-A64E-3D6A04076126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E231E64E-43C6-46D9-A64E-3D6A04076126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{914488EF-1906-43C1-BEDC-C68EA33D276E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{914488EF-1906-43C1-BEDC-C68EA33D276E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{914488EF-1906-43C1-BEDC-C68EA33D276E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{914488EF-1906-43C1-BEDC-C68EA33D276E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

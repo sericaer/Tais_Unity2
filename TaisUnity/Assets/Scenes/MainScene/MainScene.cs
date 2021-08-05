@@ -14,6 +14,10 @@ public class MainScene : MonoBehaviour
 
     public Canvas canvas;
 
+    public Date date;
+
+    public MainTimer timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,17 @@ public class MainScene : MonoBehaviour
 
         Facade.BuildRunData();
 
+        StartGame();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void StartGame()
+    {
         foreach (var depart in departments)
         {
             depart.alphaHitTestMinimumThreshold = 0.1f;
@@ -33,11 +48,8 @@ public class MainScene : MonoBehaviour
                 gameObj.GetComponentInChildren<CountryDetail>().gmData = Facade.runData.countyMgr.Single(x => x.id == depart.name);
             });
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        date.AssocateData();
+        timer.StartTimer();
     }
 }

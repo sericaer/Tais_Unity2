@@ -1,22 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Facade</AssemblyName>
     <RootNamespace>Tais</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>../TaisUnity/Assets/Cores</OutputPath>
-    <Optimize>false</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CountryManager\CountryManager.csproj" />
-    <ProjectReference Include="..\Date\Date.csproj" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Interface\Interface.csproj" />
-    <ProjectReference Include="..\Logger\Logger.csproj" />
-    <ProjectReference Include="..\ModManager\ModManager.csproj" />
   </ItemGroup>
 
 </Project>
