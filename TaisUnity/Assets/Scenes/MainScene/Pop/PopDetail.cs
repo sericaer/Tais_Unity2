@@ -31,14 +31,14 @@ public class PopDetail : MonoBehaviour
             type.text = _gmData.def.type;
 
             _gmData.WhenPropertyValueChanges(x => x.num).Subscribe(x => popNum.text = ((int)x).ToString()).EndWith(this);
-            _gmData.WhenPropertyValueChanges(x => x.consume).Subscribe(x => consume.text = ((int)x).ToString()).EndWith(this);
+            _gmData.WhenPropertyValueChanges(x => x.consume).Subscribe(x => consume.text = x.ToString("F2")).EndWith(this);
             _gmData.WhenPropertyValueChanges(x => x.good).Subscribe(x => goodNum.text = ((int)x).ToString()).EndWith(this);
-            _gmData.WhenPropertyValueChanges(x => x.per_good).Subscribe(x => perGood.text = ((int)x).ToString()).EndWith(this);
+            _gmData.WhenPropertyValueChanges(x => x.per_good).Subscribe(x => perGood.text = x.ToString("F2")).EndWith(this);
 
             if (_gmData.farmWork != null)
             {
                 _gmData.farmWork.WhenPropertyValueChanges(x => x.farm).Subscribe(x => farm.text = ((int)x).ToString()).EndWith(this);
-                _gmData.farmWork.WhenPropertyValueChanges(x => x.per_farm).Subscribe(x => perFarm.text = ((int)x).ToString()).EndWith(this);
+                _gmData.farmWork.WhenPropertyValueChanges(x => x.per_farm).Subscribe(x => perFarm.text = x.ToString("F2")).EndWith(this);
             }
         }
     }

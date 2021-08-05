@@ -16,6 +16,8 @@ namespace Tais
         double consume { get; }
 
         IFarmWork farmWork { get; }
+
+        void DayInc((int y, int m, int d) date);
     }
 
     public interface IFarmWork : INotifyPropertyChanged

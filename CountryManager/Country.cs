@@ -62,6 +62,11 @@ namespace Tais
         public void DayInc((int y, int m, int d) date)
         {
             crop.DayInc(date);
+
+            foreach(var pop in popMgr.Items)
+            {
+                pop.DayInc(date);
+            }
         }
     }
 }
