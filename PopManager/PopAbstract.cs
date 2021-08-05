@@ -11,19 +11,28 @@ namespace Tais
 
         public double num { get; set; }
 
-        public double farm { get; set; }
+        public double consume { get; set; }
 
-        public double consume => per_farm * 100;
+        public double good { get; set; }
 
         public IPopDef def { get; set; }
 
-        public double per_farm => farm / num;
+        public IFarmWork farmWork { get; set; }
+
+        public double per_good => good / num;
 
         public PopAbstract(IPopInit initData, IPopDef def)
         {
             this.def = def;
             this.num = initData.num;
-            this.farm = initData.farm;
+
+            if(initData.farm != null)
+            {
+                farmWork = new FarmWork(initData.farm.Value, this, (x) =>
+                {
+                    good += x;
+                });
+            }
         }
     }
 }

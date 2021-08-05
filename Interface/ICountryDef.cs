@@ -18,6 +18,6 @@ namespace Tais
     {
         int num { get;}
 
-        int farm { get;}
+        int? farm { get;}
     }
 }

@@ -40,6 +40,6 @@ namespace Tais
     internal class PopInit : IPopInit
     {
         public int num { get; set; }
-        public int farm { get; set; }
+        public int? farm { get; set; }
     }
 }

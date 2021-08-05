@@ -3,6 +3,8 @@ using DynamicData.Aggregation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using ReactiveMarbles.PropertyChanged;
+using System.Linq;
 
 namespace Tais
 {
@@ -16,15 +18,21 @@ namespace Tais
 
         public string name => def.name;
 
+        public double? cropGrown { get; set; }
+
         public int popNum { get; set; }
 
         public int farm { get; set; }
 
         public ICountryDef def { get; set; }
 
+        private Crop crop;
+
         public Country(ICountryDef countryDef, IEnumerable<IPopDef> popDefs)
         {
             def = countryDef;
+
+            crop = new Crop();
 
             popMgr = new PopManager(countryDef.pops, popDefs);
 
@@ -33,15 +41,27 @@ namespace Tais
                 .Sum(x => (int)x.Value)
                 .Subscribe(x => popNum = x);
 
-            popMgr.Connect().WhenPropertyChanged(x => x.farm)
+            popMgr.Connect().Transform(x=>x.farmWork).Filter(x=>x == null)
+                .WhenPropertyChanged(x => x.farm)
                 .ToObservableChangeSet()
                 .Sum(x => (int)x.Value)
                 .Subscribe(x => farm = x);
+
+            crop.WhenPropertyValueChanges(x => x.growPercent)
+                .Subscribe(x => cropGrown = x);
+
+            crop.WhenHavest = (grownPercent) =>
+            {
+                foreach(var farmWork in popMgr.Items.Select(x => x.farmWork).OfType<IFarmWork>())
+                {
+                    farmWork.Havest(grownPercent);
+                }
+            };
         }
 
         public void DayInc((int y, int m, int d) date)
         {
-            
+            crop.DayInc(date);
         }
     }
 }

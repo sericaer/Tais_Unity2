@@ -9,11 +9,22 @@ namespace Tais
 
         double num { get; set; }
 
+        double good { get; set; }
+
+        double per_good { get; }
+
+        double consume { get; }
+
+        IFarmWork farmWork { get; }
+    }
+
+    public interface IFarmWork : INotifyPropertyChanged
+    {
         double farm { get; set; }
 
         double per_farm { get; }
 
-        double consume { get; }
+        void Havest(double grownPercent);
     }
 
     public enum CONSUME_LEVEL

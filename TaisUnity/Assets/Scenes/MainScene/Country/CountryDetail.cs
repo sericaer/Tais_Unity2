@@ -11,6 +11,7 @@ public class CountryDetail : MonoBehaviour
     public Text label;
     public Text popNum;
     public Text farm;
+    public Text cropgrown;
 
     public PopContainer popContainer;
 
@@ -28,6 +29,7 @@ public class CountryDetail : MonoBehaviour
 
         gmData.WhenPropertyValueChanges(x => x.popNum).Subscribe(x => popNum.text = x.ToString()).EndWith(this);
         gmData.WhenPropertyValueChanges(x => x.farm).Subscribe(x => farm.text = x.ToString()).EndWith(this);
+        gmData.WhenPropertyValueChanges(x => x.cropGrown).Subscribe(x => cropgrown.text = x != null ?  x.ToString() : "--").EndWith(this);
 
         popContainer.gmData = gmData.popMgr;
     }
