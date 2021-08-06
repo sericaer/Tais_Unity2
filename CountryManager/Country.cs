@@ -5,11 +5,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using ReactiveMarbles.PropertyChanged;
 using System.Linq;
+using PropertyChanged;
+
 
 namespace Tais
 {
     internal class Country : ICountry
     {
+#pragma warning disable CS0067
         public event PropertyChangedEventHandler PropertyChanged;
 
         public IObservableCache<IPop, IPopDef> popMgr { get; set; }

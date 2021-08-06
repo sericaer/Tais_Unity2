@@ -11,10 +11,11 @@ namespace Tais
 {
     class PopAbstract : IPop
     {
-        public static double MinConsume = 0.1;
-        public static double MaxConsume = 5.0;
-
+#pragma warning disable CS0067
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public static double MinConsume = 0.01;
+        public static double MaxConsume = 1.0;
 
         public double num { get; set; }
 

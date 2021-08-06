@@ -6,6 +6,7 @@ namespace Tais
 {
     internal class FarmWork : IFarmWork
     {
+#pragma warning disable CS0067
         public event PropertyChangedEventHandler PropertyChanged;
 
         public double farm { get; set; }
