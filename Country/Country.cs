@@ -71,5 +71,11 @@ namespace Tais
                 pop.DayInc(date);
             }
         }
+
+        public IDictionary<string, double> CalcTaxDetail(int level)
+        {
+            return popMgr.Items.Where(x=>x.collectTax!= null)
+                .ToDictionary(p => p.def.type, p => p.collectTax.DoCollect(level));
+        }
     }
 }

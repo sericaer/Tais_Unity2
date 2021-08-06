@@ -1,4 +1,5 @@
 ﻿using DynamicData;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Tais
@@ -18,5 +19,7 @@ namespace Tais
         IObservableCache<IPop, IPopDef> popMgr { get; }
 
         void DayInc((int y, int m, int d) date);
+
+        IDictionary<string, double> CalcTaxDetail(int level);
     }
 }

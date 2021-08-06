@@ -27,16 +27,25 @@ namespace Tais
 
         public IFarmWork farmWork { get; set; }
 
+        public ICollectTax collectTax { get; set; }
+
         public double per_good => good / num;
 
         public (int y, int m, int d) currData { get; set; }
-        
-        public PopAbstract(IPopInit initData, IPopDef def)
+
+        public PopAbstract(IPopInit initData, IPopDef def, ICollectTax collectTax)
         {
             this.def = def;
             this.num = initData.num;
+            this.collectTax = collectTax;
 
-            if(initData.farm != null)
+            if(collectTax is CollectTax @comCollectText)
+            {
+                this.WhenPropertyValueChanges(x => x.num)
+                    .Subscribe(popNum => comCollectText.popNum = (int)popNum);
+            }
+
+            if (initData.farm != null)
             {
                 farmWork = new FarmWork(initData.farm.Value, this, (x) =>
                 {

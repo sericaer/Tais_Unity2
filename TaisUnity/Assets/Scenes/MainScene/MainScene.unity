@@ -1256,6 +1256,7 @@ MonoBehaviour:
   - {fileID: 664440544}
   - {fileID: 1839974295}
   countryPrefabs: {fileID: 7227523826985585043, guid: 74e22605dfac1fe48aba4e2187f08c3e, type: 3}
+  collectTaxDialogPrefab: {fileID: 8160266107662172546, guid: 5932e6bd30da2324ab16a0f5e3071bdb, type: 3}
   canvas: {fileID: 1627782694}
   date: {fileID: 773944728}
   timer: {fileID: 620592589}

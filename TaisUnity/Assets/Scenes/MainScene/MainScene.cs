@@ -11,6 +11,7 @@ public class MainScene : MonoBehaviour
     public List<Image> departments = new List<Image>();
 
     public GameObject countryPrefabs;
+    public GameObject collectTaxDialogPrefab;
 
     public Canvas canvas;
 
@@ -33,7 +34,10 @@ public class MainScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Facade.date.value.m == 9 && Facade.date.value.d == 2)
+        {
+            Instantiate(collectTaxDialogPrefab, canvas.transform);
+        }
     }
 
     void StartGame()

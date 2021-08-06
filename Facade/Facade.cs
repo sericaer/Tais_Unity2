@@ -8,6 +8,7 @@ namespace Tais
         public static ModManager modManager;
 
         public static IDate date => runData.date;
+        public static CountryManager countryMgr => runData.countyMgr;
 
         public static void InitLog(Action<string> logAction)
         {
