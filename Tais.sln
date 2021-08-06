@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Interface.csproj", "{EA1C5EC9-E822-4737-B454-F7DC532D8E3F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountryManager", "CountryManager\CountryManager.csproj", "{C3E941DF-837E-4C80-8042-527BC7422054}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Country", "Country\Country.csproj", "{C3E941DF-837E-4C80-8042-527BC7422054}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PopManager", "PopManager\PopManager.csproj", "{B232E10E-D473-4131-BCF7-8755B353038E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pop", "Pop\Pop.csproj", "{B232E10E-D473-4131-BCF7-8755B353038E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModManager", "ModManager\ModManager.csproj", "{A37124B3-1CBE-4595-83A0-47E933832F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod", "Mod\Mod.csproj", "{A37124B3-1CBE-4595-83A0-47E933832F74}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade", "Facade\Facade.csproj", "{A05DB21B-40F0-4F24-9E14-BA4BA869443F}"
 EndProject

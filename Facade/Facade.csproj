@@ -12,11 +12,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CountryManager\CountryManager.csproj" />
+    <ProjectReference Include="..\Country\Country.csproj" />
     <ProjectReference Include="..\Date\Date.csproj" />
     <ProjectReference Include="..\Interface\Interface.csproj" />
     <ProjectReference Include="..\Logger\Logger.csproj" />
-    <ProjectReference Include="..\ModManager\ModManager.csproj" />
+    <ProjectReference Include="..\Mod\Mod.csproj" />
   </ItemGroup>
 
 </Project>
