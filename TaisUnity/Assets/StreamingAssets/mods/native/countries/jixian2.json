@@ -4,15 +4,15 @@
     "pops": {
         "haoqiang": {
             "num": 1200,
-            "farm": 7000
+            "farm": 70000
         },
         "minhu": {
             "num": 40000,
-            "farm": 40000
+            "farm": 400000
         },
         "yinhu": {
             "num": 20000,
-            "farm": 20000
+            "farm": 200000
         },
         "zeikou": {
             "num": 500

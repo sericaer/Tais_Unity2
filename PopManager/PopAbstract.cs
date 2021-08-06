@@ -48,14 +48,14 @@ namespace Tais
                     (perGood, currData) =>
                     {
                         int nextHavestDay = FarmWork.CalcDaySpanToNextHavert(currData);
-                        var calc = per_good / (nextHavestDay + 10);
+                        var calc = per_good / (nextHavestDay + 30);
                         if (calc < MinConsume)
                         {
                             return MinConsume;
                         }
                         if (calc > MaxConsume)
                         {
-                            return MinConsume;
+                            return MaxConsume;
                         }
 
                         return calc;
@@ -67,6 +67,11 @@ namespace Tais
         public void DayInc((int y, int m, int d) date)
         {
             currData = date;
+
+            if(good > 0)
+            {
+                good -= consume * num;
+            }
         }
     }
 }

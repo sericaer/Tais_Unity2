@@ -50,7 +50,7 @@ namespace Tais
 
         public void Havest(double grownPercent)
         {
-            var good = farm * grownPercent / 100;
+            var good = farm * grownPercent * 5 / 100;
             produce?.Invoke(good);
         }
     }
