@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784d9f34656612d4888efb71b6cb4087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countryCollectContainer: {fileID: 0}
+  countryCollectContainer: {fileID: 902361653760754726}
 --- !u!1 &8160266107917267441
 GameObject:
   m_ObjectHideFlags: 0

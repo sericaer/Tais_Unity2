@@ -14,12 +14,14 @@ public class CollectTaxDialog : MonoBehaviour
             collectElem.CollectTax();
         }
         Destroy(this.gameObject);
+
+        MainTimer.inst.isSysPause = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        MainTimer.inst.isSysPause = true;
     }
 
     // Update is called once per frame
