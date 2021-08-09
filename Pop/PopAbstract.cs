@@ -43,6 +43,10 @@ namespace Tais
             {
                 this.WhenPropertyValueChanges(x => x.num)
                     .Subscribe(popNum => comCollectText.popNum = (int)popNum);
+                comCollectText.doCollect = (taxValue) =>
+                {
+                    good -= taxValue;
+                };
             }
 
             if (initData.farm != null)

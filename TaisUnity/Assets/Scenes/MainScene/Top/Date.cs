@@ -12,6 +12,27 @@ public class Date : MonoBehaviour
     public Text month;
     public Text day;
 
+    public IDate gmData 
+    { 
+        get
+        {
+            return _gmData;
+        }
+        set
+        {
+            _gmData = value;
+
+            _gmData.WhenPropertyValueChanges(x => x.value).Subscribe(d =>
+            {
+                year.text = d.y.ToString();
+                month.text = d.m.ToString();
+                day.text = d.d.ToString();
+            }).EndWith(this);
+        }
+    }
+
+    private IDate _gmData;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,15 +43,5 @@ public class Date : MonoBehaviour
     void Update()
     {
         
-    }
-
-    internal void AssocateData()
-    {
-        Facade.date.WhenPropertyValueChanges(x => x.value).Subscribe(d =>
-          {
-              year.text = d.y.ToString();
-              month.text = d.m.ToString();
-              day.text = d.d.ToString();
-          });
     }
 }

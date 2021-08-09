@@ -20,6 +20,8 @@ namespace Tais
 
         void DayInc((int y, int m, int d) date);
 
-        IDictionary<string, double> CalcTaxDetail(int level);
+        IDictionary<string, double> CalcTaxDetail(TAX_LEVEL level);
+
+        void CollectTax(TAX_LEVEL level);
     }
 }

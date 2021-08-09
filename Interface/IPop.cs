@@ -33,7 +33,8 @@ namespace Tais
 
     public interface ICollectTax
     {
-        double DoCollect(int level);
+        double CalcTax(TAX_LEVEL level);
+        void DoCollect(TAX_LEVEL level);
     }
 
     public enum CONSUME_LEVEL
@@ -62,6 +63,15 @@ namespace Tais
 
         [ConsumeRage(120, int.MaxValue)]
         CONSUME_LEVEL7
+    }
+
+    public enum TAX_LEVEL
+    {
+        Level1,
+        Level2,
+        Level3,
+        Level4,
+        Level5
     }
 
     public class ConsumeRage : Attribute

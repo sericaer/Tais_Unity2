@@ -72,10 +72,18 @@ namespace Tais
             }
         }
 
-        public IDictionary<string, double> CalcTaxDetail(int level)
+        public IDictionary<string, double> CalcTaxDetail(TAX_LEVEL level)
         {
             return popMgr.Items.Where(x=>x.collectTax!= null)
-                .ToDictionary(p => p.def.type, p => p.collectTax.DoCollect(level));
+                .ToDictionary(p => p.def.type, p => p.collectTax.CalcTax(level));
+        }
+
+        public void CollectTax(TAX_LEVEL level)
+        {
+            foreach(var colletor in popMgr.Items.Select(x => x.collectTax).OfType<ICollectTax>())
+            {
+                colletor.DoCollect(level);
+            }
         }
     }
 }

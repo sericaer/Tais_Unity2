@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +27,15 @@ public class CountryCollectTax : MonoBehaviour
 
             slider.onValueChanged.AddListener((v) =>
             {
-                taxDetail = _gmData.CalcTaxDetail((int)v);
+                taxDetail = _gmData.CalcTaxDetail((TAX_LEVEL)v);
                 taxValue.text = taxDetail.Values.Sum().ToString();
             });
         }
+    }
+
+    internal void CollectTax()
+    {
+        gmData.CollectTax((TAX_LEVEL)((int)slider.value));
     }
 
     private ICountry _gmData;
@@ -37,7 +43,7 @@ public class CountryCollectTax : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        slider.maxValue = Enum.GetValues(typeof(TAX_LEVEL)).Cast<int>().Max();
     }
 
     // Update is called once per frame

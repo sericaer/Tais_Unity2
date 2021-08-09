@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tais;
 using UnityEngine;
 
 public class CollectTaxDialog : MonoBehaviour
@@ -8,6 +9,10 @@ public class CollectTaxDialog : MonoBehaviour
 
     public void OnConfirm()
     {
+        foreach(var collectElem in countryCollectContainer.GetComponentsInChildren<CountryCollectTax>())
+        {
+            collectElem.CollectTax();
+        }
         Destroy(this.gameObject);
     }
 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Tais;
+using ReactiveMarbles.PropertyChanged;
 
 public class MainScene : MonoBehaviour
 {
@@ -34,10 +35,7 @@ public class MainScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Facade.date.value.m == 9 && Facade.date.value.d == 2)
-        {
-            Instantiate(collectTaxDialogPrefab, canvas.transform);
-        }
+
     }
 
     void StartGame()
@@ -53,7 +51,16 @@ public class MainScene : MonoBehaviour
             });
         }
 
-        date.AssocateData();
+        date.gmData = Facade.date;
+
         timer.StartTimer();
+
+        Facade.date.WhenPropertyValueChanges(x => x.value).Subscribe(d =>
+        {
+            if (d.m == 9 && d.d == 2)
+            {
+                Instantiate(collectTaxDialogPrefab, canvas.transform);
+            }
+        }).EndWith(this);
     }
 }
