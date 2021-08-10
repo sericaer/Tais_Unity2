@@ -4,7 +4,7 @@ namespace Tais
 {
     internal class PopYinh : PopAbstract
     {
-        public PopYinh(IPopInit initData, IPopDef def) : base(initData, def, null)
+        public PopYinh(IPopInit initData, IPopDef def) : base(initData, def)
         {
         }
     }

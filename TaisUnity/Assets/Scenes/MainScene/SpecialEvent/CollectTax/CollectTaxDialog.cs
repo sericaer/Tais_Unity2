@@ -11,7 +11,9 @@ public class CollectTaxDialog : MonoBehaviour
     {
         foreach(var collectElem in countryCollectContainer.GetComponentsInChildren<CountryCollectTax>())
         {
-            collectElem.CollectTax();
+            var productRegisters = collectElem.CollectTax();
+
+            Facade.productMgr.tax.Add(productRegisters);
         }
         Destroy(this.gameObject);
 

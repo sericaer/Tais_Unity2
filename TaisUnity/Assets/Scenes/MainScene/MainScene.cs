@@ -17,6 +17,7 @@ public class MainScene : MonoBehaviour
     public Canvas canvas;
 
     public Date date;
+    public TaxPanel tax;
 
     public MainTimer timer;
 
@@ -52,6 +53,7 @@ public class MainScene : MonoBehaviour
         }
 
         date.gmData = Facade.date;
+        tax.gmData = Facade.productMgr.tax;
 
         timer.StartTimer();
 

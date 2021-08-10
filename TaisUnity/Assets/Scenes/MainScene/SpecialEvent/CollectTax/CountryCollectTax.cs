@@ -33,9 +33,9 @@ public class CountryCollectTax : MonoBehaviour
         }
     }
 
-    internal void CollectTax()
+    internal IEnumerable<IProductRegister> CollectTax()
     {
-        gmData.CollectTax((TAX_LEVEL)((int)slider.value));
+        return gmData.CollectTax((TAX_LEVEL)((int)slider.value));
     }
 
     private ICountry _gmData;

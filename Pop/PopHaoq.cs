@@ -8,9 +8,9 @@ namespace Tais
 {
     class PopHaoq : PopAbstract
     {
-        public PopHaoq(IPopInit initData, IPopDef def) : base(initData, def, new CollectTax())
+        public PopHaoq(IPopInit initData, IPopDef def) : base(initData, def)
         {
-            
+            taxCollector = new TaxPopCollector(this);
         }
     }
 }

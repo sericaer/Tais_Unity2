@@ -22,6 +22,6 @@ namespace Tais
 
         IDictionary<string, double> CalcTaxDetail(TAX_LEVEL level);
 
-        void CollectTax(TAX_LEVEL level);
+        IEnumerable<IProductRegister> CollectTax(TAX_LEVEL level);
     }
 }

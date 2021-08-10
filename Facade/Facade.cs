@@ -9,6 +9,7 @@ namespace Tais
 
         public static IDate date => runData.date;
         public static CountryManager countryMgr => runData.countyMgr;
+        public static ProductManager productMgr => runData.productMgr;
 
         public static void InitLog(Action<string> logAction)
         {

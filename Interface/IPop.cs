@@ -17,7 +17,7 @@ namespace Tais
 
         IFarmWork farmWork { get; }
 
-        ICollectTax collectTax { get; }
+        ITaxPopCollector taxCollector { get; }
 
         void DayInc((int y, int m, int d) date);
     }
@@ -29,12 +29,6 @@ namespace Tais
         double per_farm { get; }
 
         void Havest(double grownPercent);
-    }
-
-    public interface ICollectTax
-    {
-        double CalcTax(TAX_LEVEL level);
-        void DoCollect(TAX_LEVEL level);
     }
 
     public enum CONSUME_LEVEL
