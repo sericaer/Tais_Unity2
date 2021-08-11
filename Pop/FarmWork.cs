@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Linq;
 using System.ComponentModel;
 using ReactiveMarbles.PropertyChanged;
 
@@ -8,12 +9,11 @@ namespace Tais
     {
 #pragma warning disable CS0067
         public event PropertyChangedEventHandler PropertyChanged;
+        public IPop pop { get; set; }
 
         public double farm { get; set; }
-        public double per_farm => farm / popNum;
 
-        private double popNum { get; set; }
-        private Action<double> produce { get; set; }
+        public double per_farm { get; set; }
 
         public static int CalcDaySpanToNextHavert((int y, int m, int d) date)
         {
@@ -41,17 +41,23 @@ namespace Tais
             return nextHavestDay;
         }
 
-        public FarmWork(int farm, IPop pop, Action<double> produce)
+        public FarmWork(int farm, IPop pop)
         {
             this.farm = farm;
-            this.produce = produce;
-            pop.WhenPropertyValueChanges(x => x.num).Subscribe(x => popNum = x);
+
+            Observable.CombineLatest(
+                pop.WhenPropertyValueChanges(x => x.num),
+                this.WhenPropertyValueChanges(x => x.farm),
+                (popNum, farmCount) =>
+                {
+                    return farmCount / popNum;
+                }).Subscribe(x=>per_farm = x);
         }
 
         public void Havest(double grownPercent)
         {
             var good = farm * grownPercent * 5 / 100;
-            produce?.Invoke(good);
+            pop.good += good;
         }
     }
 }

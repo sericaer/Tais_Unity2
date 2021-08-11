@@ -41,10 +41,7 @@ namespace Tais
 
             if (initData.farm != null)
             {
-                farmWork = new FarmWork(initData.farm.Value, this, (x) =>
-                {
-                    good += x;
-                });
+                farmWork = new FarmWork(initData.farm.Value, this);
 
                 Observable.CombineLatest(this.WhenPropertyValueChanges(x => x.per_good),
                     this.WhenPropertyValueChanges(x => x.currData).Where(x=>x.y != 0),

@@ -24,6 +24,8 @@ namespace Tais
 
     public interface IFarmWork : INotifyPropertyChanged
     {
+        IPop pop { get; set; }
+
         double farm { get; set; }
 
         double per_farm { get; }
