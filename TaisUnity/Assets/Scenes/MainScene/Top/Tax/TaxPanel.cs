@@ -20,7 +20,7 @@ public class TaxPanel : MonoBehaviour
         {
             _gmData = value;
 
-            _gmData.WhenPropertyValueChanges(x => x.count).Subscribe(x => taxValue.text = x.ToString("N"));
+            _gmData.WhenPropertyValueChanges(x => x.count).Subscribe(x => taxValue.text = x.ToString("N0"));
         }
     }
 

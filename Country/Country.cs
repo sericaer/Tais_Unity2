@@ -44,7 +44,7 @@ namespace Tais
                 .Sum(x => (int)x.Value)
                 .Subscribe(x => popNum = x);
 
-            popMgr.Connect().Transform(x=>x.farmWork).Filter(x=>x == null)
+            popMgr.Connect().Transform(x=>x.farmWork).Filter(x=>x != null)
                 .WhenPropertyChanged(x => x.farm)
                 .ToObservableChangeSet()
                 .Sum(x => (int)x.Value)

@@ -27,7 +27,7 @@ public class Pop : MonoBehaviour
 
             type.text = _gmData.def.type;
 
-            _gmData.WhenPropertyValueChanges(x => x.num).Subscribe(x => num.text = ((int)x).ToString()).EndWith(this);
+            _gmData.WhenPropertyValueChanges(x => x.num).Subscribe(x => num.text = x.ToString("N0")).EndWith(this);
         }
     }
 

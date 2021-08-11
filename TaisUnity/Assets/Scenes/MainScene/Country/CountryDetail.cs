@@ -27,9 +27,9 @@ public class CountryDetail : MonoBehaviour
     {
         label.text = gmData.name;
 
-        gmData.WhenPropertyValueChanges(x => x.popNum).Subscribe(x => popNum.text = x.ToString()).EndWith(this);
-        gmData.WhenPropertyValueChanges(x => x.farm).Subscribe(x => farm.text = x.ToString()).EndWith(this);
-        gmData.WhenPropertyValueChanges(x => x.cropGrown).Subscribe(x => cropgrown.text = x != null ?  x.ToString() : "--").EndWith(this);
+        gmData.WhenPropertyValueChanges(x => x.popNum).Subscribe(x => popNum.text = x.ToString("N0")).EndWith(this);
+        gmData.WhenPropertyValueChanges(x => x.farm).Subscribe(x => farm.text = x.ToString("N0")).EndWith(this);
+        gmData.WhenPropertyValueChanges(x => x.cropGrown).Subscribe(x => cropgrown.text = x != null ?  x.Value.ToString("F2") : "--").EndWith(this);
 
         popContainer.gmData = gmData.popMgr;
     }
